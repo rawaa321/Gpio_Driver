@@ -33,10 +33,13 @@ void GPIO_Config(uint32_t *GPIOx,uint8_t pin, uint8_t Mode , uint8_t Type)
    
     uint32_t  *GPIOx_MODER = (uint32_t *) (GPIOx + 0x00);
     uint32_t  *GPIOx_OTYPER =(uint32_t * ) (GPIOx + 0x04);
+  
+    *GPIOx_MODER=0x00000000;
+    *GPIOx_OTYPER =0x00000000;
 
    if ( pin== PIN0 || pin==PIN1 ||pin== PIN2 ||pin== PIN3 ||pin== PIN4 ||pin== PIN5 ||pin== PIN6 ||pin== PIN7 ||pin== PIN8 ||pin== PIN9 ||pin== PIN10 ||pin== PIN11 ||pin== PIN12 ||pin== PIN13 ||pin== PIN14 ||pin== PIN15)
    {
-    
+     
     *GPIOx_MODER |=    ( Mode << 2*pin);
     *GPIOx_OTYPER |=   (Type << pin);    
    }
