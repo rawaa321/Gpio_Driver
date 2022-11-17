@@ -3,7 +3,7 @@
 void GPIO_Clock_Enable ( uint32_t *GPIOx)
 {
   assert(GPIOx == GPIOA || GPIOx == GPIOB || GPIOx == GPIOC || GPIOx == GPIOD );
-  uint16_t *RCCAHB1 = (uint16_t*)(0x40023800);
+  uint16_t *RCCAHB1 = (uint16_t*)(0x40023830);
   
   *RCCAHB1 = 0x00000000;
   if(GPIOx ==GPIOA) 
